@@ -13,9 +13,9 @@ enum Currency {
     
     func getRate() -> Double {
         switch self {
-        case .USD: return 0.52137
-        case .EUR: return 0.48828
-        case .RUB: return 31.05590
+            case .USD: return 0.53219797764768493879723257051623
+            case .EUR: return 0.48402710551790900290416263310745
+            case .RUB: return 30.959752321981424148606811145511
         }
     }
     

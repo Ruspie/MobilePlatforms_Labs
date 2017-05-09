@@ -26,4 +26,12 @@ class CustomWeatherTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func changeAxis(){
+        if (UIDevice.current.orientation.isLandscape){
+            weatherStackView.axis = .horizontal
+        } else {
+            weatherStackView.axis = .vertical
+        }
+    }
 }

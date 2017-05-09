@@ -66,12 +66,19 @@ class WeatherTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "weatherCell", for: indexPath) as! CustomWeatherTableViewCell
-
-        cell.sityLabel.text = weathers[indexPath.row].sity
-        cell.temperatureLabel.text = String(weathers[indexPath.row].temperature) + "°C"
-        cell.weatherLabel.text = weathers[indexPath.row].main
-        cell.windLabel.text = weathers[indexPath.row].wind + "m/s"
-
+        if (weathers.count != 0) {
+            cell.sityLabel.text = weathers[indexPath.row].sity
+            cell.temperatureLabel.text = String(weathers[indexPath.row].temperature) + "°C"
+            cell.weatherLabel.text = weathers[indexPath.row].main
+            cell.windLabel.text = weathers[indexPath.row].wind + "m/s"
+            cell.changeAxis()
+        }
+        
         return cell
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        tableView.reloadData()
     }
 }
